@@ -9,6 +9,7 @@ https://github.com/shiversoftdev/t7dwidm_patch/releases/tag/1.0.0.0b
 SyGnUs - Exception handler help\
 Extinct, ItsFebiven - Testing\
 Kenshin9977, Obey, Dawson - Crash Reports
+Snowy. - Crash Report for CL_HandleRelayPacket
 # Fair Warning
 This is a third party tool and as such may violate the EULA you agree to when playing BO3\
 This would then also violate the posted security enforcement policy posted by treyarch\
