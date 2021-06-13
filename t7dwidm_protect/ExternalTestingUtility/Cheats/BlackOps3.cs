@@ -14,6 +14,8 @@ namespace t7dwidm_protect.Cheats
         {
             public const ulong OFF_DEBUGTARGET = 0x143A606;
             public const ulong OFF_GAME_READY = 0x168EF8C8;
+            public const ulong OFF_DVAR_SETFROMSTRINGBYNAME = 0x22C7F60;
+            public const ulong OFF_CL_HandleVoiceTypePacket = 0x1359310;
         }
 
 
@@ -47,6 +49,13 @@ namespace t7dwidm_protect.Cheats
                     __game.OpenHandle(ProcessEx.PROCESS_ACCESS, true);
                 }
             }
+        }
+
+        public static void SetDvar(string name, string value)
+        {
+            if (name is null || value is null) return;
+            var f = Game[OFF_DVAR_SETFROMSTRINGBYNAME];
+            Game.Call<long>(f, name, value, true);
         }
 
         #region typedef

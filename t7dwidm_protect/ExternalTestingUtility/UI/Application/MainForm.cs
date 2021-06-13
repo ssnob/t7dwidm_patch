@@ -71,6 +71,9 @@ namespace t7dwidm_protect
                                 break;
                             }
 
+                            // disable voice packet dispatching
+                            BlackOps3.SetDvar("maxvoicepacketsperframe", "0");
+
                             var dll = Path.Combine(Environment.CurrentDirectory, "t7dwidm_patch.dll");
                             var hMemory = BlackOps3.Game.QuickAlloc(dll.Length + 1);
                             BlackOps3.Game.SetString(hMemory, dll);
@@ -91,7 +94,7 @@ namespace t7dwidm_protect
                                 break;
                             }
 
-                            ctx64.SetDebug(BlackOps3.Game[BlackOps3.Constants.OFF_DEBUGTARGET]);
+                            ctx64.SetDebug(BlackOps3.Game[BlackOps3.Constants.OFF_DEBUGTARGET], BlackOps3.Game[BlackOps3.Constants.OFF_CL_HandleVoiceTypePacket], 0);
                             ctx64.SetContext(hThread);
                             NativeStealth.ResumeThread(hThread);
                             ProcessEx.CloseHandle(hThread);

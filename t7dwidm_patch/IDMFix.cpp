@@ -12,10 +12,12 @@ LONG __stdcall IDMFix::HandleIDMExcept(EXCEPTION_POINTERS* pExceptionInfo)
 typedef unsigned long long(__fastcall* ZwContinue_t)(PCONTEXT ThreadContext, BOOLEAN RaiseAlert);
 ZwContinue_t ZwContinue = reinterpret_cast<ZwContinue_t>(GetProcAddress(GetModuleHandleA("ntdll.dll"), "ZwContinue"));
 
+#define qnoff(x) ((int64_t)(x) - (int64_t)GetModuleHandle(NULL))
 void IDMFix::HandleIDMExcept2(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord)
-{
+{    
     ContextRecord->Dr0 = DEBUG_ADDRESS;
-    ContextRecord->Dr7 = 1;
+    ContextRecord->Dr1 = PTR_CL_HandleVoiceTypePacket;
+    ContextRecord->Dr7 = 1 | 2;
 
     if (ExceptionRecord->ExceptionAddress == (PVOID)CRASH_SPOT)
     {
@@ -55,6 +57,14 @@ void IDMFix::HandleIDMExcept2(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT Contex
         Hook::nlog(L"XUID BAD: %p", senderXuid);
         // redirect to a nearby return because we are not dispatching this message
         ContextRecord->Rip = DEBUG_EXIT;
+        ZwContinue(ContextRecord, false);
+        return;
+    }
+
+    if (ExceptionRecord->ExceptionAddress == (PVOID)PTR_CL_HandleVoiceTypePacket)
+    {
+        ContextRecord->Rip = PTR_CL_HandleVoiceTypePacket_Ret;
+        ContextRecord->Rax = 0;
         ZwContinue(ContextRecord, false);
         return;
     }

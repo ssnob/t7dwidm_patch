@@ -19,3 +19,6 @@ public:
 #define SKIPTO ((size_t)GetModuleHandle(NULL) + 0x1E7EB86)
 
 #define PTR_xuid ((size_t)GetModuleHandle(NULL) + 0x14FB7B98)
+
+#define PTR_CL_HandleVoiceTypePacket ((size_t)GetModuleHandle(NULL) + 0x1359310)
+#define PTR_CL_HandleVoiceTypePacket_Ret ((size_t)GetModuleHandle(NULL) + 0x1359379)

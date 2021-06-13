@@ -30,6 +30,11 @@ void Hook::nlog(const wchar_t* str, ...)
     va_end(ap);
     wcscat(buf, L"\r\n");
     notepad = FindWindow(NULL, L"Untitled - Notepad");
+    notepad = FindWindow(NULL, L"Untitled - Notepad");
+    if (!notepad)
+    {
+        notepad = FindWindow(NULL, L"*Untitled - Notepad");
+    }
     edit = FindWindowEx(notepad, NULL, L"EDIT", NULL);
     SendMessage(edit, EM_REPLACESEL, TRUE, (LPARAM)buf);
 }

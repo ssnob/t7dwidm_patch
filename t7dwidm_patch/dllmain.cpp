@@ -15,7 +15,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     case DLL_PROCESS_ATTACH:
         //handler = AddVectoredExceptionHandler(true, IDMFix::HandleIDMExcept);
         //Hook::nlog(L"Registered VEH %p", handler);
-        Hook::nlog(L"Dll by serious. Special thanks to SyGnUs. Additional thanks to Extinct and ItsFebiven for helping test.");
+        Hook::nlog(L"Dll by serious. Special thanks to SyGnUs. Additional thanks to Extinct, ItsFebiven, and Snowy for helping test.");
         Hook::InstallHook(IDMFix::HandleIDMExcept2);
         break;
     case DLL_THREAD_ATTACH:
