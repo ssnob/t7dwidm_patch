@@ -16,6 +16,8 @@ public:
 #define DEBUG_EXIT ((size_t)GetModuleHandle(NULL) + 0x143A69A)
 
 #define CRASH_SPOT ((size_t)GetModuleHandle(NULL) + 0x1E7E981)
+#define CRASH_MIN ((size_t)GetModuleHandle(NULL) + 0x1E7E900)
+#define CRASH_MAX ((size_t)GetModuleHandle(NULL) + 0x1E7EB9F)
 #define SKIPTO ((size_t)GetModuleHandle(NULL) + 0x1E7EB86)
 
 #define PTR_xuid ((size_t)GetModuleHandle(NULL) + 0x14FB7B98)

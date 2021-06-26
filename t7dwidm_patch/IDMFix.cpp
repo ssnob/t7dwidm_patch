@@ -19,7 +19,20 @@ void IDMFix::HandleIDMExcept2(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT Contex
     ContextRecord->Dr1 = PTR_CL_HandleVoiceTypePacket;
     ContextRecord->Dr7 = 1 | 2;
 
-    if (ExceptionRecord->ExceptionAddress == (PVOID)CRASH_SPOT)
+    /*
+    if (ExceptionRecord->ExceptionCode == 0xC0000005)
+    {
+        Hook::nlog(L"[%p]Exception at (%p)", GetModuleHandle(NULL), qnoff(ExceptionRecord->ExceptionAddress));
+        Hook::nlog(L"[%p]Rcx: (%p) Rdx: (%p) R8: (%p) R9: (%p)", qnoff(ExceptionRecord->ExceptionAddress), qnoff(ContextRecord->Rcx), qnoff(ContextRecord->Rdx), qnoff(ContextRecord->R8), qnoff(ContextRecord->R9));
+        Hook::nlog(L"[%p]Rax: (%p) Rbx: (%p) Rsi: (%p) Rdi: (%p)", qnoff(ExceptionRecord->ExceptionAddress), qnoff(ContextRecord->Rax), qnoff(ContextRecord->Rbx), qnoff(ContextRecord->Rsi), qnoff(ContextRecord->Rdi));
+        for (int i = 0; i < 0x1000; i += 0x10)
+        {
+            Hook::nlog(L"[%p] %p %p", ContextRecord->Rsp + i, *(int64_t*)(ContextRecord->Rsp + i), *(int64_t*)(ContextRecord->Rsp + i + 8));
+        }
+    }
+    */
+
+    if ((ExceptionRecord->ExceptionAddress >= (PVOID)CRASH_MIN) && (ExceptionRecord->ExceptionAddress <= (PVOID)CRASH_MAX))
     {
         ContextRecord->Rip = SKIPTO; // just skip all this bs
         ZwContinue(ContextRecord, false);
