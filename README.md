@@ -18,7 +18,7 @@ Please also be aware that VAC does not currently pick this tool up, so VAC isnt 
 Treyarch anti-cheat (TAC), is no longer banning on BO3, at this moment in time\
 **This means that effectively the chances of you getting banned are almost ZERO**, but by request of several people, I give you fair warning.
 
-# Extra info to the morons saying this is malware
+# Extra info to the people saying this is malware
 I've been told someone got DDoSed shortly after using the patch... Welcome to CoD? My tool isnt the issue. \
 \
 BO3 (and all treyarch cods) allow anyone who has your gamertag to pull your IP address through in game functionality. \
