@@ -3,7 +3,7 @@ fixes dwinstantdispatchmessage crashes on bo3
 
 # How
 Extract the released zip and run the exe before starting bo3. Leave the tool open while you play\
-https://github.com/shiversoftdev/t7dwidm_patch/releases/tag/1.0.1.0b
+https://github.com/shiversoftdev/t7dwidm_patch/releases/tag/1.0.5.0b
 
 # Credits
 SyGnUs - Exception handler help\
@@ -19,7 +19,7 @@ Treyarch anti-cheat (TAC), is no longer banning on BO3, at this moment in time\
 **This means that effectively the chances of you getting banned are almost ZERO**, but by request of several people, I give you fair warning.
 
 # Extra info to the people saying this is malware
-I've been told someone got DDoSed shortly after using the patch... Welcome to CoD? My tool isnt the issue. \
+I've been told someone got DDoSed shortly after using the patch... My tool isnt the issue. \
 \
 BO3 (and all treyarch cods) allow anyone who has your gamertag to pull your IP address through in game functionality. \
 \
